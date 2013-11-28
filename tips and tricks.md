@@ -2,7 +2,6 @@
 ###Регулярные выражения
 ```js
 var objRegExp = tools_web.reg_exp_init();
-//или так
 //var objRegExp = new ActiveXObject('VBScript.RegExp');
 objRegExp.Global = true;
 objRegExp.IgnoreCase = true;
@@ -17,6 +16,13 @@ var text = "dolor ipsum"
 //метод Test возвращает true, если фрагмент, соответствующий выражению, 
 //в заданной строке найден, и false в противном случае
 objRegExp.Test(text);
-//возвращает объект - последовательность фрагментов текста, совпавших с шаблоном
+
+//Execute возвращает объект - последовательность фрагментов текста, совпавших с шаблоном
 var mathes = objRegExp.Execute(text);
+try{
+  var mathes = objRegExp.Execute(text);	    
+  return mathes.item(0).SubMatches(0);
+}catch(exp){
+  return "";
+}
 ```
