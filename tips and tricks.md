@@ -60,3 +60,10 @@ var data = XQuery("for $elem in collaborators where  doc-contains($elem/id,'wt_d
 var collDoc = OpenDoc(UrlFromDocID(coll_id));
 var value = collDoc.TopElem.custom_elems.ObtainChildByKey("value").value;
 ```
+#Присвоения отрицательного значения
+```js
+//нужно присвоить переменной -1, в WT это можно сделать так
+var num = 0-5;
+//вывод
+alert(StrSignedInt(num));
+```
