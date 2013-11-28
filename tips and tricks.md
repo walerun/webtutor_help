@@ -54,3 +54,8 @@ var data = XQuery("
 ```js
 var data = XQuery("for $elem in collaborators where  doc-contains($elem/id,'wt_data','[collab_type=руководитель~string]') return $elem")
 ```
+#Манипуляции с объектами (карточками)
+Получение значения настраиваемого поля
+```js
+var value = collDoc.custom_elems.ObtainChildByKey("value").value;
+```
