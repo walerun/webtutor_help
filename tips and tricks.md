@@ -6,8 +6,10 @@ var objRegExp = tools_web.reg_exp_init();
 objRegExp.Global = true;
 objRegExp.IgnoreCase = true;
 objRegExp.MultiLine = true;
+
 //определяем паттерн
 objRegExp.Pattern = "\\n";
+
 //текст для разбора
 var text = "dolor ipsum"
 ```
@@ -19,6 +21,7 @@ objRegExp.Test(text);
 
 //Execute возвращает объект - последовательность фрагментов текста, совпавших с шаблоном
 var mathes = objRegExp.Execute(text);
+
 try{
   var mathes = objRegExp.Execute(text);	    
   return mathes.item(0).SubMatches(0);
