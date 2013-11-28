@@ -57,5 +57,6 @@ var data = XQuery("for $elem in collaborators where  doc-contains($elem/id,'wt_d
 #Манипуляции с объектами (карточками)
 Получение значения настраиваемого поля
 ```js
-var value = collDoc.custom_elems.ObtainChildByKey("value").value;
+var collDoc = OpenDoc(UrlFromDocID(coll_id));
+var value = collDoc.TopElem.custom_elems.ObtainChildByKey("value").value;
 ```
