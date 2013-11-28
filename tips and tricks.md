@@ -18,7 +18,8 @@ var text = "dolor ipsum"
 //метод Test возвращает true, если фрагмент, соответствующий выражению, 
 //в заданной строке найден, и false в противном случае
 objRegExp.Test(text);
-
+```
+```js
 //Execute возвращает объект - последовательность фрагментов текста, совпавших с шаблоном
 var mathes = objRegExp.Execute(text);
 
@@ -28,4 +29,8 @@ try{
 }catch(exp){
   return "";
 }
+```
+```js
+//замена найденного
+text = objRegExp.Replace(text, "fragment");
 ```
