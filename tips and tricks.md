@@ -60,6 +60,19 @@ var data = XQuery("for $elem in collaborators where  doc-contains($elem/id,'wt_d
 var collDoc = OpenDoc(UrlFromDocID(coll_id));
 var value = collDoc.TopElem.custom_elems.ObtainChildByKey("value").value;
 ```
+Копирование данных из одного элемента в другой, включая дочерние элементы. Удобный способ создавать объекты по эталону.
+```js
+elemDoc.TopElem.AssignElem(otherElemDoc);
+```
+А так удобно заполнять дочерние элементы:
+```js
+//находим нужный дочерний элемент
+fldTutor = docEvent.TopElem.tutors.ObtainChildByKey( id_сотрудника );
+//fldTutor = docEvent.TopElem.collaborators.AddChild();
+//заполняем этот элемент из карточки сотрудника
+tools.common_filling( 'collaborator', fldTutor, id_сотрудника );
+docEvent.Save();
+```
 #Присвоения отрицательного значения
 ```js
 //нужно присвоить переменной -1, в WT это можно сделать так
