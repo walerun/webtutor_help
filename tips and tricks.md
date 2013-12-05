@@ -54,6 +54,11 @@ var data = XQuery("
 ```js
 var data = XQuery("for $elem in collaborators where  doc-contains($elem/id,'wt_data','[collab_type=руководитель~string]') return $elem")
 ```
+Запрос xQuery с поиском множества значений поля
+```js
+var tests_id = [id1, id2];
+var end_tests = XQuery("for $elem in test_learnings where MatchSome($elem/assessment_id,("+tests_id.join(",")+")) return $elem")
+```
 #Манипуляции с объектами (карточками)
 Получение значения настраиваемого поля
 ```js
@@ -86,4 +91,9 @@ alert(StrSignedInt(num));
 Чтобы получить абсолютный путь используем метод `UrlToFilePath`
 ```js
 
+```
+#Работа с Url
+Формирование Url
+```js
+link = UrlAppendPath( global_settings.settings.portal_base_url, '/view_doc.html?mode=career_reserve&object_id='+objDocSecID+'&doc_id='+doc_id );
 ```
