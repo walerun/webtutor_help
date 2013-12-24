@@ -59,6 +59,15 @@ var data = XQuery("for $elem in collaborators where  doc-contains($elem/id,'wt_d
 var tests_id = [id1, id2];
 var end_tests = XQuery("for $elem in test_learnings where MatchSome($elem/assessment_id,("+tests_id.join(",")+")) return $elem")
 ```
+Выборка подчиненных для функцонального руководителя
+```js
+//boss_type_id - id типа функц. руководителья
+var users = ArraySelectDistinct( tools.get_all_sub_persons_by_func_manager_id(hr_id, "collaborator,subdivision,org,position", boss_type_id), "id")
+```
+Выборка сотрудников заданного подразделения
+```js
+var users = tools.get_sub_person_ids_by_subdivision_id(sub_id);
+```
 #Манипуляции с объектами (карточками)
 Получение значения настраиваемого поля
 ```js
